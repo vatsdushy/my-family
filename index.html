@@ -19,25 +19,25 @@
     </div> 
 
     <script>
-      const names = [
-        "harsh",
-        "dushyant",
-        "guru",
-        "kavita",
-        "moolchand",
-        "taravati",
+      const family = [
+        {name: 'harsh', age: 20},
+        {name: 'dushyant', age: 25},
+        {name: 'guru', age: 27},
+        {name: 'kavita', age: 30},
+        {name: 'moolchand', age: 51},
+        {name: 'taravati', age: 50},
       ];
 
       function searchMember() {
         // Get the input name
         let name = document.getElementById("input").value;
 
-        // Filter the names
-        let res = names.filter((item) => item.search(name) !== -1);
+        // Filter the family
+        let res = family.filter((item) => item.name.indexOf(name.toLowerCase()) !== -1);
 
         // Put the resultant arrray
         const list = document.getElementById("list");
-        list.innerHTML = res.map((name, i) => `<div class='list-item'>${i+1}. ${name}</div><br/>`).join("");
+        list.innerHTML = res.map((item, i) => `<div class='list-item'>${i+1}. ${item.name} - ${item.age}</div><br/>`).join("");
       }
     </script>
   </body>
